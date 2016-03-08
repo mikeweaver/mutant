@@ -41,6 +41,17 @@ Mutant::Meta::Example.add do
 end
 
 Mutant::Meta::Example.add do
+  source 'method(bar)'
+
+  singleton_mutations
+  mutation 'public_method(bar)'
+  mutation 'method'
+  mutation 'bar'
+  mutation 'method(nil)'
+  mutation 'method(self)'
+end
+
+Mutant::Meta::Example.add do
   source 'a >= b'
 
   singleton_mutations
@@ -133,6 +144,7 @@ Mutant::Meta::Example.add do
   mutation 'foo'
   mutation 'self.to_a'
   mutation 'foo.to_ary'
+  mutation 'foo.to_set'
 end
 
 Mutant::Meta::Example.add do
